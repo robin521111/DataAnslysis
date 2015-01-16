@@ -1,0 +1,45 @@
+﻿@model premiere.Data.Models.LoginModel
+
+@{
+    ViewBag.Title = "Log in";
+}
+@using premiere.Data.Helper
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+</hgroup>
+
+
+
+<section id="loginForm">
+<h2 class="form-signin-heading">Use a local account to log in.</h2>
+@using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+               
+
+    @Html.TextBoxFor(m => m.UserName, new { @type="text", @class="form-control" ,@placeholder="User name",@required="",@autofocus=""})
+    @Html.ValidationMessageFor(m => m.UserName)
+            
+            
+    @Html.PasswordFor(m => m.Password, new { @type="password", @class="form-control",@placeholder="Password"})
+    @Html.ValidationMessageFor(m => m.Password)
+           
+           
+    @Html.CheckBoxFor(m => m.RememberMe)
+    @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox", @value="remember-me"})
+          
+        <button type="submit" value="Log in" class="btn btn-lg btn-primary btn-block">Sign in</button>
+    <p>
+        @Html.ActionLink("Register", "Register") if you don't have an account.
+    </p>
+}
+</section>
+<section id="login_explaination">
+
+</section>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
