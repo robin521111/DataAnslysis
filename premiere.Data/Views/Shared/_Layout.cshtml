@@ -4,7 +4,7 @@
     
     <head>
         <meta charset="utf-8" />
-        <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+        <title>@ViewBag.Title - Premiere Group Data Analysis</title>
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <meta name="viewport" content="width=device-width" />
         @Styles.Render("~/Content/css")
@@ -46,7 +46,38 @@
           <ul class="nav navbar-nav navbar-right">
             <li>@Html.ActionLink("About", "AboutMe","Home")</li>
             <li>@Html.ActionLink("Services","Services","Home")</li>
-            <li>@Html.ActionLink("Login","Login","Account")</li>
+              @if (Request.IsAuthenticated)
+              {
+                <li class="span3">
+                    <div class="btn-group" style="margin-top:8px;padding-left:90px">
+                        <button type="button" class="btn btn-success">@Membership.GetUser().UserName</button>
+                        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+
+                            
+                            @if (System.Web.Security.Roles.GetRolesForUser().Contains("Administrators"))
+                            {
+
+                                <li>
+                                    @Html.ActionLink("Admin", "Index", "Admin", new { @userId = Membership.GetUser().ProviderUserKey }, new { })
+                                </li>
+                                
+                            }
+
+                                <li class="divider"></li>
+                                <li>@Html.ActionLink("Sign Off", "Logoff", "Account")</li>
+                        </ul>
+                    </div>
+                </li>
+                @*<li>@Html.ActionLink(User.Identity.Name, "Login", "Account")</li>*@
+                            }
+              else
+              {
+                <li>@Html.ActionLink("Login", "Login", "Account")</li>
+              }
 
           </ul>
         </div><!-- /.navbar-collapse -->

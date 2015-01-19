@@ -21,7 +21,10 @@ namespace premiere.DataTest
 				Rate = 100,
 				LastName = "Kim",
 				FirstName = "Ki Won",
+               
 			});
+
+            
 		}
 	}
 }

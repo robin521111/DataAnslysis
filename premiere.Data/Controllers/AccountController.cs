@@ -61,6 +61,13 @@ namespace premiere.Data.Controllers
 			return RedirectToAction("Index", "Home");
 		}
 
+        public ActionResult Logoff()
+        {
+            MySqlWebSecurity.Logout();
+
+            return RedirectToAction("Index","Home");
+        }
+
 		//
 		// GET: /Account/Register
 
@@ -112,7 +119,14 @@ namespace premiere.Data.Controllers
 								LastName = model.LastName,
 								FirstName = model.FirstName,
 							});
+
+                            db.UsersInRoles.Add(new UsersInRoles{
+                                UserId = userId,
+                                RoleId = 2
+
+                            });
 							db.SaveChanges();
+                           
 						}
 
 						scope.Complete();

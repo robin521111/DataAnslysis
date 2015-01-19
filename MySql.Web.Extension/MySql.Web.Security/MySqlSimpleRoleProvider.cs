@@ -489,7 +489,7 @@ namespace MySql.Web.Security
 				}
 			}
 		}
-
+            
 		private static int FindRoleId(MySqlSecurityDbContext db, string roleName)
 		{
 			var role = db.Roles.SingleOrDefault(x => x.RoleName == roleName);

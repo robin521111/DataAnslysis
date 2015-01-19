@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("premiere.Data")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Freelancer")]
+[assembly: AssemblyCompany("premiere")]
 [assembly: AssemblyProduct("premiere.Data")]
-[assembly: AssemblyCopyright("Copyright © Freelancer 2013")]
+[assembly: AssemblyCopyright("Copyright © Premiere 2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
