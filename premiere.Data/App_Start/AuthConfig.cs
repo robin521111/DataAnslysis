@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Web.WebPages.OAuth;
 using premiere.Data.Models;
+using MySql.Web.Security;
 
 namespace premiere.Data
 {
@@ -14,6 +15,8 @@ namespace premiere.Data
 			// To let users of this site log in using their accounts from other sites such as Microsoft, Facebook, and Twitter,
 			// you must update this site. For more information visit http://go.microsoft.com/fwlink/?LinkID=252166
 
+
+                  
 			//OAuthWebSecurity.RegisterMicrosoftClient(
 			//	clientId: "",
 			//	clientSecret: ""
@@ -36,8 +39,8 @@ namespace premiere.Data
 			//	consumerSecret: "",
 			//);
 
-			OAuthWebSecurity.RegisterGoogleClient();
-			OAuthWebSecurity.RegisterYahooClient();
+            //OAuthWebSecurity.RegisterGoogleClient();
+            //OAuthWebSecurity.RegisterYahooClient();
 		}
 	}
 }

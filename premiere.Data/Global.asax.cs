@@ -8,7 +8,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using premiere.DataTest;
 using System.Web;
-
+using MySql.Web.Security;
 
 namespace premiere.Data
 {
@@ -19,12 +19,12 @@ namespace premiere.Data
 	{
 		protected void Application_Start()
 		{
+
 			AreaRegistration.RegisterAllAreas();
 
 			// NOTICE: Initialize MySqlSimpleMembershipProvider for Roles in any pages.
 			// by X10-MOBILE\xyz37(Kim Ki Won) in Friday, April 19, 2013 12:06 AM
-			(new premiere.Data.Filters.InitializeSimpleMembershipAttribute()).OnActionExecuting(null);
-
+            //(new premiere.Data.Filters.InitializeSimpleMembershipAttribute()).OnActionExecuting(null);
 			WebApiConfig.Register(GlobalConfiguration.Configuration);
 			FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 			RouteConfig.RegisterRoutes(RouteTable.Routes);

@@ -18,7 +18,7 @@ using WebMatrix.WebData;
 namespace premiere.Data.Controllers
 {
 	[Authorize]
-	[InitializeSimpleMembership]
+    [InitializeSimpleMembership]
 	public class AccountController : Controller
 	{
 		//

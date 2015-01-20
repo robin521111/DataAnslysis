@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using MySql.Data.MySqlClient;
 using MySql.Web.Security;
+using System.Web.Security;
 
 namespace premiere.Data.Controllers
 {
@@ -13,8 +14,14 @@ namespace premiere.Data.Controllers
 		public ActionResult Index()
 		{
 			ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-            MySqlSimpleRoleProvider roleProvider = new MySqlSimpleRoleProvider();
-            ViewBag.Role= roleProvider.GetRolesForUser("robin521");
+
+            //MySQLRoleProvider mysqlRoleProvider = new System.Web.Security.RoleProvider() as MySQLRoleProvider;
+
+           
+            System.Web.Security.RoleProvider previousRoleProvider = new MySqlSimpleRoleProvider();
+
+            ViewBag.Role = previousRoleProvider.GetRolesForUser("robin521"); 
+
 
 			return View();
 		}
